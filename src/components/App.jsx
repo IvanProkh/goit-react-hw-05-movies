@@ -4,7 +4,7 @@ export const App = () => {
   return (
     <>
       <Routes>
-        <Route></Route>
+        <Route>Film</Route>
       </Routes>
     </>
   );
