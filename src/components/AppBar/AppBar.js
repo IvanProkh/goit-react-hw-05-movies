@@ -1,10 +1,16 @@
+import { BsDownload, BsScissors } from 'react-icons/bs';
+
 export const AppBar = () => {
   return (
     <div>
-      <ul>
-        <li>Home</li>
-        <li>Movies</li>
-      </ul>
+      <button>
+        <BsDownload />
+        Download
+      </button>
+      <button>
+        <BsScissors />
+        Clip
+      </button>
     </div>
   );
 };
