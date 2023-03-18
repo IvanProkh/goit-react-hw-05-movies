@@ -13,11 +13,11 @@ export const App = () => {
       <AppBar />
       <ProgressBar />
       <Routes>
-        <Route path="/">Home</Route>
-        <Route path="/movies">movies</Route>
+        <Route path="/" />
+        <Route path="/movies" />
         <Route path="/movies/:movieId">
-          <Route path="cast"></Route>
-          <Route path="reviews"></Route>
+          <Route path="cast" />
+          <Route path="reviews" />
         </Route>
       </Routes>
 
