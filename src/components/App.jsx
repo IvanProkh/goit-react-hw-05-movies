@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import { ProgressBar } from 'react-loader-spinner';
 
 import { AppBar } from './AppBar/AppBar';
+import { Home } from '../pages/Home/Home';
 
 export const App = () => {
   return (
@@ -13,7 +14,7 @@ export const App = () => {
       <AppBar />
       {/* <ProgressBar /> */}
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<Home />} />
         <Route path="/movies" />
         <Route path="/movies/:movieId">
           <Route path="cast" />
