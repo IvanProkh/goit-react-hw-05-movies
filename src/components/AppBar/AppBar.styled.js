@@ -5,8 +5,9 @@ export const AppBarTitle = styled(NavLink)`
   font-size: ${p => p.theme.fontSizes.l};
   font-weight: ${p => p.theme.fontWeights.medium};
   color: ${p => p.theme.colors.primary};
-  position: fixed;
-  margin-left: 20px;
+  position: absolute;
+  top: 13px;
+  left: 120px;
 `;
 
 export const AppBarList = styled.ul`
@@ -14,11 +15,13 @@ export const AppBarList = styled.ul`
   justify-content: center;
   align-items: center;
   height: 58px;
+  margin: 0px auto;
 `;
 
 export const AppBarItem = styled.li`
   color: ${p => p.theme.colors.primary};
   cursor: pointer;
+  font-size: ${p => p.theme.fontSizes.l};
   transition: ${p => p.theme.transition.cubicBezier};
   &:hover {
     transform: ${p => p.theme.transform.scaleThird};
@@ -28,3 +31,10 @@ export const AppBarItem = styled.li`
     margin-left: ${p => p.theme.space[5]}px;
   }
 `;
+
+// export const AppBarUser = styled.button`
+//   border-radius: 50%;
+//   width: 32px;
+//   height: 32px;
+//   background-color: red;
+// `;
