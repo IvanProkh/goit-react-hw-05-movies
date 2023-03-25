@@ -15,7 +15,6 @@ export async function searchMovie(query, currentPage) {
       query: `${query}`,
       include_adult: 'false',
       page: `${currentPage}`,
-      // per_page: 12,
     },
   });
 
@@ -23,12 +22,12 @@ export async function searchMovie(query, currentPage) {
 }
 
 export async function getTrending() {
-  const response = await axios.get(`${BASE_URL}/trending/movie/day`, {
+  const { data } = await axios.get(`${BASE_URL}/trending/movie/day`, {
     params: {
       api_key: `${API_KEY}`,
       page: 1,
     },
   });
-  console.log(response);
-  return response.data;
+  console.log(data);
+  return data;
 }

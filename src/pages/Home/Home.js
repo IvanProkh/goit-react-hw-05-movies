@@ -12,12 +12,12 @@ export const Home = () => {
       .then(res => {
         console.log(res);
         setMovies(res.results);
-        console.log('movie:', movies);
       })
       .catch(error => {
         console.log('ОЙОЙОЙОЙ', error);
         toastError();
       });
+    console.log('movie:', movies);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
