@@ -22,7 +22,7 @@ export async function searchMovie(query, currentPage) {
   return response.data;
 }
 
-export async function topMovie() {
+export async function getTrending() {
   const response = await axios.get(`${BASE_URL}/trending/movie/day`, {
     params: {
       api_key: `${API_KEY}`,

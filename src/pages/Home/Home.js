@@ -1,29 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { searchMovie, topMovie } from '../../components/services/searchApi';
+import { useState, useEffect } from 'react';
+import { getTrending } from '../../components/services/searchApi';
+import { FilmsList } from '../../components/FilmsList/FilmsList';
+import { toastError } from 'components/services/toasts';
 
-import { Box } from '../../components/Box';
+// import { Box } from '../../components/Box';
 export const Home = () => {
-  // const [film, setFilm] = useState([]);
+  const [movies, setMovies] = useState([]);
 
-  topMovie().then(response => {
-    console.log(response);
-    setFilm(response);
-    console.log('film:', film);
-  });
+  useEffect(() => {
+    getTrending()
+      .then(res => {
+        console.log(res);
+        setMovies(res.results);
+        console.log('movie:', movies);
+      })
+      .catch(error => {
+        console.log('ОЙОЙОЙОЙ', error);
+        toastError();
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  return (
-    <Box
-      display="flex"
-      alignItems="center"
-      justify-content="center"
-      m={2}
-      p={3}
-    >
-      <ul>
-        {film.map(({ id, poster_path }) => (
-          <li key={id}>{poster_path}</li>
-        ))}
-      </ul>
-    </Box>
-  );
+  return <FilmsList data={movies} />;
 };
