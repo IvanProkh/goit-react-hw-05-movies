@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { AppBar } from './AppBar/AppBar';
 import { Home } from '../pages/Home/Home';
+import { Movies } from '../pages/Movies/Movies';
 
 export const App = () => {
   return (
@@ -15,7 +16,7 @@ export const App = () => {
       {/* <ProgressBar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" />
+        <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId">
           <Route path="cast" />
           <Route path="reviews" />

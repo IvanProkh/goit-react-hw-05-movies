@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getTrending } from '../../components/services/searchApi';
+
 import { FilmsList } from '../../components/FilmsList/FilmsList';
 import { toastError } from 'components/services/toasts';
 

@@ -27,13 +27,6 @@ export const AppBar = () => {
           <NavLink to="/movies">Movies</NavLink>
         </AppBarItem>
       </AppBarList>
-      {/* <div>
-          <label>
-            <input text="Serch" type="search" />
-          </label>
-
-          <AppBarUser></AppBarUser>
-        </div> */}
     </Box>
   );
 };

@@ -15,14 +15,14 @@ export const searchImages = poster => {
     : 'https://sd.keepcalms.com/i-w400/keep-calm-poster-not-found.jpg';
 };
 
-export async function searchMovie(query, currentPage) {
+export async function searchMovie(query) {
   const response = await axios.get(`${BASE_URL}/search/movie`, {
     params: {
       api_key: `${API_KEY}`,
       language: 'en-US',
       query: `${query}`,
       include_adult: 'false',
-      page: `${currentPage}`,
+      // page: `${currentPage}`,
     },
   });
 
