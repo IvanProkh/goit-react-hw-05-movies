@@ -3,7 +3,9 @@ import { getTrending } from '../../components/services/searchApi';
 import { FilmsList } from '../../components/FilmsList/FilmsList';
 import { toastError } from 'components/services/toasts';
 
-// import { Box } from '../../components/Box';
+import { HomeTitle } from './Home.styled';
+import { Box } from '../../components/Box';
+
 export const Home = () => {
   const [movies, setMovies] = useState([]);
 
@@ -23,8 +25,10 @@ export const Home = () => {
 
   return (
     <>
-      <h1>20 Most Popular Movies Right Now</h1>
-      <FilmsList data={movies} />
+      <Box>
+        <HomeTitle>20 Most Popular Movies Right Now</HomeTitle>
+        <FilmsList data={movies} />
+      </Box>
     </>
   );
 };

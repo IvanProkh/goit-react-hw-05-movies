@@ -7,7 +7,7 @@ export const AppBarTitle = styled(NavLink)`
   color: ${p => p.theme.colors.primary};
   position: absolute;
   top: 13px;
-  left: 120px;
+  left: 160px;
 `;
 
 export const AppBarList = styled.ul`
@@ -22,10 +22,10 @@ export const AppBarItem = styled.li`
   color: ${p => p.theme.colors.primary};
   cursor: pointer;
   font-size: ${p => p.theme.fontSizes.l};
+  font-weight: ${p => p.theme.fontWeights.bold};
   transition: ${p => p.theme.transition.cubicBezier};
   &:hover {
     transform: ${p => p.theme.transform.scaleThird};
-    /* text-shadow: ${p => p.theme.shadows.shadowSecond}; */
   }
   &:not(:first-child) {
     margin-left: ${p => p.theme.space[5]}px;
