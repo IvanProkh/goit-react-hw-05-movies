@@ -7,6 +7,14 @@ import axios from 'axios';
 const API_KEY = '9beeda1ea4aae4d04f0fe1c9b0b0fd1d';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+const IMG_BASE_URL = `https://image.tmdb.org/t/p`;
+
+export const searchImages = poster => {
+  return poster !== null
+    ? `${IMG_BASE_URL}/w400${poster}`
+    : 'https://sd.keepcalms.com/i-w400/keep-calm-poster-not-found.jpg';
+};
+
 export async function searchMovie(query, currentPage) {
   const response = await axios.get(`${BASE_URL}/search/movie`, {
     params: {

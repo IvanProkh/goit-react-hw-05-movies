@@ -21,5 +21,10 @@ export const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <FilmsList data={movies} />;
+  return (
+    <>
+      <h1>20 Most Popular Movies Right Now</h1>
+      <FilmsList data={movies} />
+    </>
+  );
 };
