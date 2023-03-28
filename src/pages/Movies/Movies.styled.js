@@ -11,7 +11,7 @@ export const MoviesForm = styled.form`
     margin: 15px auto;
 
     border-radius: 5px;
-    border: none;
+    border: ${p => p.theme.borders.none};
 
     ::placeholder {
       font-size: ${p => p.theme.fontSizes.m};
