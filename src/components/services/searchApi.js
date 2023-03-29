@@ -16,7 +16,7 @@ export const searchImages = poster => {
 };
 
 export async function searchMovie(query) {
-  const response = await axios.get(`${BASE_URL}/search/movie`, {
+  const { data } = await axios.get(`${BASE_URL}/search/movie`, {
     params: {
       api_key: `${API_KEY}`,
       language: 'en-US',
@@ -26,7 +26,7 @@ export async function searchMovie(query) {
     },
   });
 
-  return response.data;
+  return data;
 }
 
 export async function getTrending() {
@@ -36,6 +36,15 @@ export async function getTrending() {
       page: 1,
     },
   });
-  console.log(data);
   return data;
+}
+
+export async function getMovieDetails(id) {
+  const responce = await axios.get(`${BASE_URL}/movie/${id}`, {
+    params: {
+      api_key: `${API_KEY}`,
+      language: 'en-US',
+    },
+  });
+  return responce.data;
 }
