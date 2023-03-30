@@ -36,14 +36,14 @@ export const MovieDetails = () => {
     <>
       <img src={imgPoster} alt={title} />
       <h2>
-        {title} ({release_date})
+        {title} ({release_date.slice(0, 4)})
       </h2>
       <p>Rating: {vote_average}</p>
       <p>Overview: {overview}</p>
       <p>
         Genres:{' '}
         {genres.map(genre => (
-          <span key={genre.id}>{genre.name} </span>
+          <span key={genre.id}> {genre.name}</span>
         ))}
       </p>
     </>
