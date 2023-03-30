@@ -6,7 +6,7 @@ import {
 } from '../../components/services/searchApi';
 
 export const MovieDetails = () => {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
 
   // const location = useLocation();
@@ -35,14 +35,15 @@ export const MovieDetails = () => {
   return (
     <>
       <img src={imgPoster} alt={title} />
-      <p>{title}</p>
-      <p>{release_date}</p>
+      <h2>
+        {title} ({release_date})
+      </h2>
       <p>Rating: {vote_average}</p>
       <p>Overview: {overview}</p>
       <p>
-        Genres:
+        Genres:{' '}
         {genres.map(genre => (
-          <span key={genre.id}> {genre.name}</span>
+          <span key={genre.id}>{genre.name} </span>
         ))}
       </p>
     </>
