@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   getMovieDetails,
   searchImages,
@@ -20,6 +20,7 @@ export const MovieDetails = () => {
       .finally(console.log(movie));
 
     console.log(movie);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
   if (!movie) {
