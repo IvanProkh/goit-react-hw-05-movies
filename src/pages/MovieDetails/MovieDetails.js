@@ -1,20 +1,25 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import {
   getMovieDetails,
   searchImages,
 } from '../../components/services/searchApi';
 
 export const MovieDetails = () => {
+  const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
-  const [movie, setMovie] = useState(null);
+
+  // const location = useLocation();
 
   useEffect(() => {
-    getMovieDetails('movieId')
+    getMovieDetails(movieId)
       .then(setMovie)
       .catch(err => {
         console.log(err);
-      });
+      })
+      .finally(console.log(movie));
+
+    console.log(movie);
   }, [movieId]);
 
   if (!movie) {
@@ -30,6 +35,15 @@ export const MovieDetails = () => {
     <>
       <img src={imgPoster} alt={title} />
       <p>{title}</p>
+      <p>{release_date}</p>
+      <p>Rating: {vote_average}</p>
+      <p>Overview: {overview}</p>
+      <p>
+        Genres:
+        {genres.map(genre => (
+          <span key={genre.id}> {genre.name}</span>
+        ))}
+      </p>
     </>
   );
 };
