@@ -36,15 +36,14 @@ export const NavLinkStyle = styled(NavLink)`
   align-items: center;
   font-weight: bold;
   font-size: 24px;
-  /* font-size: ${p => p.theme.fontSizes.m}; */
   background-color: ${p => p.theme.colors.bg_dark};
   height: 48px;
   width: 120px;
   border-radius: 5px;
   margin: 0 6px;
   border: ${p => p.theme.borders.none};
-
   transition: ${p => p.theme.transition.cubicBezier};
+
   &:hover {
     transform: ${p => p.theme.transform.scaleThird};
   }

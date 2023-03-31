@@ -30,7 +30,7 @@ export const Movies = () => {
 
   return (
     <>
-      <MoviesForm>
+      <MoviesForm onSubmit={event => event.preventDefault()}>
         <input
           text="text"
           autoComplete="off"

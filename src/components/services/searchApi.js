@@ -13,6 +13,12 @@ export const searchImages = poster => {
     : 'https://sd.keepcalms.com/i-w400/keep-calm-poster-not-found.jpg';
 };
 
+export const searchCastImage = poster => {
+  return poster !== null
+    ? `${IMG_BASE_URL}/w200${poster}`
+    : 'https://sd.keepcalms.com/i-w400/keep-calm-poster-not-found.jpg';
+};
+
 export async function searchMovie(query) {
   const { data } = await axios.get(`${BASE_URL}/search/movie`, {
     params: {
@@ -39,6 +45,16 @@ export async function getTrending() {
 
 export async function getMovieDetails(id) {
   const responce = await axios.get(`${BASE_URL}/movie/${id}`, {
+    params: {
+      api_key: `${API_KEY}`,
+      language: 'en-US',
+    },
+  });
+  return responce.data;
+}
+
+export async function getMovieCast(id) {
+  const responce = await axios.get(`${BASE_URL}/movie/${id}/credits`, {
     params: {
       api_key: `${API_KEY}`,
       language: 'en-US',

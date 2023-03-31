@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import {
   getMovieDetails,
   searchImages,
@@ -49,11 +49,12 @@ export const MovieDetails = () => {
             {title} ({new Date(release_date).getFullYear()})
           </h2>
           <p>
-            <MovieDetailsTitle>Rating:</MovieDetailsTitle>{' '}
+            <MovieDetailsTitle>Rating: </MovieDetailsTitle>
             {vote_average.toFixed(1)}
           </p>
           <p>
-            <MovieDetailsTitle>Overview:</MovieDetailsTitle> {overview}
+            <MovieDetailsTitle>Overview: </MovieDetailsTitle>
+            {overview}
           </p>
           <p>
             <MovieDetailsTitle>Genres: </MovieDetailsTitle>
@@ -71,6 +72,7 @@ export const MovieDetails = () => {
           <NavLinkStyle to="reviews">Reviews</NavLinkStyle>
         </li>
       </NavList>
+      <Outlet />
     </>
   );
 };
