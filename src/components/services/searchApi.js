@@ -62,3 +62,16 @@ export async function getMovieCast(id) {
   });
   return responce.data;
 }
+
+export async function getMovieReviews(id) {
+  const responce = await axios.get(`${BASE_URL}/movie/${id}/reviews`, {
+    params: {
+      api_key: `${API_KEY}`,
+      language: 'en-US',
+      page: 1,
+    },
+  });
+
+  console.log('responce', responce.data);
+  return responce.data;
+}

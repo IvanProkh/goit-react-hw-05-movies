@@ -11,11 +11,13 @@ export const MovieDetailsStyle = styled.main`
 
   & h2 {
     padding-bottom: 20px;
+    color: ${p => p.theme.colors.primary};
   }
 
   & p {
     margin: 20px 20px 20px 0px;
     font-size: 18px;
+    text-align: justify;
   }
 `;
 
