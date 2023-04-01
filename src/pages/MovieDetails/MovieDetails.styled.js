@@ -10,7 +10,6 @@ export const MovieDetailsStyle = styled.main`
   }
 
   & h2 {
-    padding-bottom: 20px;
     color: ${p => p.theme.colors.primary};
   }
 

@@ -44,34 +44,32 @@ export async function getTrending() {
 }
 
 export async function getMovieDetails(id) {
-  const responce = await axios.get(`${BASE_URL}/movie/${id}`, {
+  const { data } = await axios.get(`${BASE_URL}/movie/${id}`, {
     params: {
       api_key: `${API_KEY}`,
       language: 'en-US',
     },
   });
-  return responce.data;
+  return data;
 }
 
 export async function getMovieCast(id) {
-  const responce = await axios.get(`${BASE_URL}/movie/${id}/credits`, {
+  const { data } = await axios.get(`${BASE_URL}/movie/${id}/credits`, {
     params: {
       api_key: `${API_KEY}`,
       language: 'en-US',
     },
   });
-  return responce.data;
+  return data;
 }
 
 export async function getMovieReviews(id) {
-  const responce = await axios.get(`${BASE_URL}/movie/${id}/reviews`, {
+  const { data } = await axios.get(`${BASE_URL}/movie/${id}/reviews`, {
     params: {
       api_key: `${API_KEY}`,
       language: 'en-US',
       page: 1,
     },
   });
-
-  console.log('responce', responce.data);
-  return responce.data;
+  return data;
 }
