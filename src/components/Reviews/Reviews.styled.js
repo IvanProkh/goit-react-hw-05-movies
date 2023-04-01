@@ -20,6 +20,7 @@ export const ReviewsList = styled.div`
 `;
 
 export const EmptyReviews = styled.p`
+  margin: 20px 0px;
   text-align: center;
-  font-sizes: 18px;
+  font-size: ${p => p.theme.fontSizes.m};
 `;

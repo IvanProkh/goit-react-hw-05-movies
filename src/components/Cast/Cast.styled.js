@@ -23,3 +23,9 @@ export const CastList = styled.div`
     text-align: center;
   }
 `;
+
+export const EmptyCast = styled.p`
+  margin: 20px 0px;
+  text-align: center;
+  font-size: ${p => p.theme.fontSizes.m};
+`;
