@@ -8,7 +8,6 @@ import {
 import { Box } from '../../components/Box';
 import {
   NavList,
-  NavLinkStyle,
   MovieDetailsStyle,
   MovieDetailsTitle,
   GoBackButtom,
