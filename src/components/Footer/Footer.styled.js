@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FooterList = styled.ul`
+export const FooterList = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;

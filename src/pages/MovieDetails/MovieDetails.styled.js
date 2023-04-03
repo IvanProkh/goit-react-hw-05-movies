@@ -1,7 +1,24 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const MovieDetailsStyle = styled.main`
+export const GoBackButtom = styled.button`
+  font-weight: bold;
+  font-size: 24px;
+  color: #fff;
+  background-color: ${p => p.theme.colors.bg_dark};
+  height: 48px;
+  width: 120px;
+  border-radius: 5px;
+  margin: 20px 0px 0px 160px;
+  border: ${p => p.theme.borders.none};
+  transition: ${p => p.theme.transition.cubicBezier};
+
+  &:hover {
+    transform: ${p => p.theme.transform.scaleThird};
+  }
+`;
+
+export const MovieDetailsStyle = styled.div`
   display: flex;
   margin: 20px 160px;
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import {
   getMovieDetails,
   searchImages,
@@ -11,11 +11,14 @@ import {
   NavLinkStyle,
   MovieDetailsStyle,
   MovieDetailsTitle,
+  GoBackButtom,
 } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
+
+  const navigate = useNavigate();
 
   // const location = useLocation();
 
@@ -40,38 +43,45 @@ export const MovieDetails = () => {
 
   const imgPoster = searchImages(poster_path);
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <>
-      <MovieDetailsStyle>
-        <img src={imgPoster} alt={title} />
-        <Box ml="20px">
-          <h2>
-            {title} ({new Date(release_date).getFullYear()})
-          </h2>
-          <p>
-            <MovieDetailsTitle>Rating: </MovieDetailsTitle>
-            {vote_average.toFixed(1)}
-          </p>
-          <p>
-            <MovieDetailsTitle>Overview: </MovieDetailsTitle>
-            {overview}
-          </p>
-          <p>
-            <MovieDetailsTitle>Genres: </MovieDetailsTitle>
-            {genres.map(genre => (
-              <span key={genre.id}> {genre.name}</span>
-            ))}
-          </p>
-        </Box>
-      </MovieDetailsStyle>
-      <NavList>
-        <li>
-          <NavLinkStyle to="cast">Cast</NavLinkStyle>
-        </li>
-        <li>
-          <NavLinkStyle to="reviews">Reviews</NavLinkStyle>
-        </li>
-      </NavList>
+      <main style={{ flexGrow: '1' }}>
+        <GoBackButtom onClick={goBack}>Go back</GoBackButtom>
+        <MovieDetailsStyle>
+          <img src={imgPoster} alt={title} />
+          <Box ml="20px">
+            <h2>
+              {title} ({new Date(release_date).getFullYear()})
+            </h2>
+            <p>
+              <MovieDetailsTitle>Rating: </MovieDetailsTitle>
+              {vote_average.toFixed(1)}
+            </p>
+            <p>
+              <MovieDetailsTitle>Overview: </MovieDetailsTitle>
+              {overview}
+            </p>
+            <p>
+              <MovieDetailsTitle>Genres: </MovieDetailsTitle>
+              {genres.map(genre => (
+                <span key={genre.id}> {genre.name}</span>
+              ))}
+            </p>
+          </Box>
+        </MovieDetailsStyle>
+        <NavList>
+          <li>
+            <NavLinkStyle to="cast">Cast</NavLinkStyle>
+          </li>
+          <li>
+            <NavLinkStyle to="reviews">Reviews</NavLinkStyle>
+          </li>
+        </NavList>
+      </main>
       <Outlet />
     </>
   );

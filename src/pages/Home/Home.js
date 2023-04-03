@@ -26,7 +26,7 @@ export const Home = () => {
 
   return (
     <>
-      <Box>
+      <Box style={{ flexGrow: '1' }}>
         <HomeTitle>20 Most Popular Movies Right Now</HomeTitle>
         <FilmsList data={movies} />
       </Box>
