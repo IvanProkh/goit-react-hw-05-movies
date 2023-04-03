@@ -12,6 +12,7 @@ import {
   MovieDetailsStyle,
   MovieDetailsTitle,
   GoBackButtom,
+  NavButtom,
 } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
@@ -43,9 +44,9 @@ export const MovieDetails = () => {
 
   const imgPoster = searchImages(poster_path);
 
-  const goBack = () => {
-    navigate(-1);
-  };
+  const goBack = () => navigate('/');
+  const goToCast = () => navigate('cast');
+  const gotoReviews = () => navigate('reviews');
 
   return (
     <>
@@ -75,10 +76,10 @@ export const MovieDetails = () => {
         </MovieDetailsStyle>
         <NavList>
           <li>
-            <NavLinkStyle to="cast">Cast</NavLinkStyle>
+            <NavButtom onClick={goToCast}>Cast</NavButtom>
           </li>
           <li>
-            <NavLinkStyle to="reviews">Reviews</NavLinkStyle>
+            <NavButtom onClick={gotoReviews}>Reviews</NavButtom>
           </li>
         </NavList>
       </main>

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const GoBackButtom = styled.button`
   font-weight: bold;
   font-size: 24px;
-  color: #fff;
+  color: ${p => p.theme.colors.text};
   background-color: ${p => p.theme.colors.bg_dark};
   height: 48px;
   width: 120px;
@@ -48,7 +48,7 @@ export const NavList = styled.ul`
   margin-right: 160px;
 `;
 
-export const NavLinkStyle = styled(NavLink)`
+export const NavButtom = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,6 +59,7 @@ export const NavLinkStyle = styled(NavLink)`
   width: 120px;
   border-radius: 5px;
   margin: 0 6px;
+  color: ${p => p.theme.colors.text};
   border: ${p => p.theme.borders.none};
   transition: ${p => p.theme.transition.cubicBezier};
 
