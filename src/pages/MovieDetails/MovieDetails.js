@@ -43,7 +43,7 @@ export const MovieDetails = () => {
 
   const imgPoster = searchImages(poster_path);
 
-  const goBack = () => navigate('/');
+  const goBack = () => navigate(-1);
   const goToCast = () => navigate('cast');
   const gotoReviews = () => navigate('reviews');
 
