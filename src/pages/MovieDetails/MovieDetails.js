@@ -29,8 +29,6 @@ export const MovieDetails = () => {
         console.log(err);
       })
       .finally(console.log(movie));
-
-    console.log(movie);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
