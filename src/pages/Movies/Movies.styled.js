@@ -11,8 +11,6 @@ export const MoviesForm = styled.form`
       display: flex;
       justify-content: center;
       align-items: center;
-      font-weight: bold;
-      font-size: 24px;
       background-color: ${p => p.theme.colors.bg_dark};
       height: 48px;
       width: 80px;
@@ -22,7 +20,7 @@ export const MoviesForm = styled.form`
       border: ${p => p.theme.borders.none};
 
       &:hover {
-        color: red;
+        color: ${p => p.theme.colors.primary};
       }
     }
   }
