@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useNavigate, useParams } from 'react-router-dom';
+import { Outlet, useNavigate, useParams, useLocation } from 'react-router-dom';
 import {
   getMovieDetails,
   searchImages,
@@ -11,28 +11,25 @@ import {
   MovieDetailsStyle,
   MovieDetailsTitle,
   GoBackButtom,
-  NavButtom,
+  NavItemLink,
 } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
-  const [movie, setMovie] = useState(null);
+export default function MovieDetails() {
+  const [movie, setMovie] = useState(null); // заменили [] на null для начального состояния
   const { movieId } = useParams();
-
   const navigate = useNavigate();
-
-  // const location = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     getMovieDetails(movieId)
       .then(setMovie)
       .catch(err => {
-        console.log(err);
-      })
-      .finally(console.log(movie));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        console.log('ошибка в муви', err);
+      });
   }, [movieId]);
 
   if (!movie) {
+    // заменили проверку на null
     return null;
   }
 
@@ -42,12 +39,15 @@ export const MovieDetails = () => {
   const imgPoster = searchImages(poster_path);
 
   const goBack = () => navigate(-1);
-  const goToCast = () => navigate('cast');
-  const goToReviews = () => navigate('reviews');
 
-  // const isCast = location.pathname.includes('cast');
+  const isCast = location.pathname.includes('cast');
+  const castLink = isCast ? `/movies/${movieId}` : `/movies/${movieId}/cast`;
 
-  // const castLink = isCast ? `/movies/${movieId}` : `/movies/${movieId}/cast`;
+  const isReviews = location.pathname.includes('reviews');
+  const reviewsLink = isReviews
+    ? `/movies/${movieId}`
+    : `/movies/${movieId}/reviews`;
+
   return (
     <>
       <main style={{ flexGrow: '1' }}>
@@ -76,14 +76,14 @@ export const MovieDetails = () => {
         </MovieDetailsStyle>
         <NavList>
           <li>
-            <NavButtom onClick={goToCast}>Cast</NavButtom>
+            <NavItemLink to={castLink}>Cast</NavItemLink>
           </li>
           <li>
-            <NavButtom onClick={goToReviews}>Reviews</NavButtom>
+            <NavItemLink to={reviewsLink}>Reviews</NavItemLink>
           </li>
         </NavList>
       </main>
       <Outlet />
     </>
   );
-};
+}

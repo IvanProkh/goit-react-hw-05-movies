@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { getTrending } from '../../components/services/searchApi';
 
-import { FilmsList } from '../../components/FilmsList/FilmsList';
+import  FilmsList  from '../../components/FilmsList/FilmsList';
 import { toastError } from 'components/services/toasts';
 
 import { HomeTitle } from './Home.styled';
 import { Box } from '../../components/Box';
 
-export const Home = () => {
+export default function Home() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -32,4 +32,4 @@ export const Home = () => {
       </Box>
     </>
   );
-};
+}

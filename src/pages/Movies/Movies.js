@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { searchMovies } from '../../components/services/searchApi';
 
-import { FilmsList } from '../../components/FilmsList/FilmsList';
+import FilmsList from '../../components/FilmsList/FilmsList';
 // import { toastError } from 'components/services/toasts';
 import { ThreeCircles } from 'react-loader-spinner';
 import { ThreeCirclesStyle } from '../../components/services/spinner';
@@ -10,7 +10,7 @@ import { ThreeCirclesStyle } from '../../components/services/spinner';
 import { MoviesForm } from './Movies.styled';
 // import { useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
+export default function Movies() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [loading, setloading] = useState(false);
@@ -80,7 +80,7 @@ export const Movies = () => {
       </main>
     </>
   );
-};
+}
 
 //
 

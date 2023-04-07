@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { searchImages } from '../services/searchApi';
 import { FilmsListStyled, FilmsListItem } from '../FilmsList/FilmsList.styled';
 
-export const FilmsList = ({ data }) => {
+export default function FilmsList({ data }) {
   return (
     <FilmsListStyled>
       {data.map(({ id, title, poster_path }) => {
@@ -20,7 +20,7 @@ export const FilmsList = ({ data }) => {
       })}
     </FilmsListStyled>
   );
-};
+}
 
 FilmsList.propTypes = {
   data: PropTypes.array.isRequired,

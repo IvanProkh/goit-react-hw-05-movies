@@ -8,7 +8,8 @@ import {
   // AppBarUser,
 } from './AppBar.styled';
 
-export const AppBar = () => {
+
+export default function AppBar() {
   return (
     <Box
       as="header"

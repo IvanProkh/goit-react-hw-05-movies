@@ -8,7 +8,7 @@ import { DelayedRender } from '../services/DelayedRender';
 
 import { ReviewsList, EmptyReviews } from './Reviews.styled';
 
-export const Reviews = () => {
+export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
@@ -60,7 +60,7 @@ export const Reviews = () => {
       )}
     </>
   );
-};
+}
 
 // export const Reviews = () => {
 //   const [reviews, setReviews] = useState([]);

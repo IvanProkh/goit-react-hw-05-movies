@@ -10,7 +10,7 @@ import { DelayedRender } from '../services/DelayedRender';
 import { getMovieCast, searchImages } from '../services/searchApi';
 import { CastList, EmptyCast } from './Cast.styled';
 
-export const Cast = () => {
+export default function Cast() {
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(false);
   // const [showEmptyCast, setShowEmptyCast] = useState(false);
@@ -63,7 +63,7 @@ export const Cast = () => {
       )}
     </>
   );
-};
+}
 
 // export const Cast = () => {
 //   const [cast, setCast] = useState([]);

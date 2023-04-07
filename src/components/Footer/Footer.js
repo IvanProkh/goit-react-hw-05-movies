@@ -1,6 +1,6 @@
 import { FooterList, FooterNav } from './Footer.styled';
 
-export const Footer = () => {
+export default function Footer() {
   return (
     <>
       <FooterList>
@@ -35,4 +35,4 @@ export const Footer = () => {
       </FooterList>
     </>
   );
-};
+}
