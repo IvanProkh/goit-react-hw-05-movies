@@ -43,8 +43,11 @@ export const MovieDetails = () => {
 
   const goBack = () => navigate(-1);
   const goToCast = () => navigate('cast');
-  const gotoReviews = () => navigate('reviews');
+  const goToReviews = () => navigate('reviews');
 
+  // const isCast = location.pathname.includes('cast');
+
+  // const castLink = isCast ? `/movies/${movieId}` : `/movies/${movieId}/cast`;
   return (
     <>
       <main style={{ flexGrow: '1' }}>
@@ -76,7 +79,7 @@ export const MovieDetails = () => {
             <NavButtom onClick={goToCast}>Cast</NavButtom>
           </li>
           <li>
-            <NavButtom onClick={gotoReviews}>Reviews</NavButtom>
+            <NavButtom onClick={goToReviews}>Reviews</NavButtom>
           </li>
         </NavList>
       </main>
