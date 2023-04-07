@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const GoBackButtom = styled.button`
   font-weight: bold;
@@ -48,7 +48,7 @@ export const NavList = styled.ul`
   margin-right: 160px;
 `;
 
-export const NavButtom = styled.button`
+export const NavItemLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
