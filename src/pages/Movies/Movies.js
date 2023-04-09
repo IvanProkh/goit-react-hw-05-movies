@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { searchMovies } from '../../components/services/searchApi';
+// import { useSearchParams } from 'react-router-dom';
 
+import { searchMovies } from '../../components/services/searchApi';
 import FilmsList from '../../components/FilmsList/FilmsList';
 import {
   toastInfoNothing,
@@ -11,7 +12,6 @@ import { ThreeCircles } from 'react-loader-spinner';
 import { ThreeCirclesStyle } from '../../components/services/spinner';
 
 import { MoviesForm } from './Movies.styled';
-// import { useSearchParams } from 'react-router-dom';
 
 export default function Movies() {
   const [query, setQuery] = useState('');

@@ -21,6 +21,7 @@ export default function MovieDetails() {
   const { movieId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const from = location.state?.from || '/';
 
   useEffect(() => {
     getMovieDetails(movieId).then(setMovie).catch(toastError);
@@ -35,7 +36,7 @@ export default function MovieDetails() {
 
   const imgPoster = searchImages(poster_path);
 
-  const goBack = () => navigate(-1);
+  const goBack = () => navigate(from);
 
   const isCast = location.pathname.includes('cast');
   const castLink = isCast ? `/movies/${movieId}` : `/movies/${movieId}/cast`;
@@ -73,10 +74,14 @@ export default function MovieDetails() {
         </MovieDetailsStyle>
         <NavList>
           <li>
-            <NavItemLink to={castLink}>Cast</NavItemLink>
+            <NavItemLink state={{ from }} to={castLink}>
+              Cast
+            </NavItemLink>
           </li>
           <li>
-            <NavItemLink to={reviewsLink}>Reviews</NavItemLink>
+            <NavItemLink state={{ from }} to={reviewsLink}>
+              Reviews
+            </NavItemLink>
           </li>
         </NavList>
       </main>

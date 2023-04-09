@@ -26,7 +26,6 @@ export async function searchMovies(query) {
       language: 'en-US',
       query: `${query}`,
       include_adult: 'false',
-      // page: `${currentPage}`,
     },
   });
 
