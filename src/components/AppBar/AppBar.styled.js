@@ -31,10 +31,3 @@ export const AppBarItem = styled.li`
     margin-left: ${p => p.theme.space[5]}px;
   }
 `;
-
-// export const AppBarUser = styled.button`
-//   border-radius: 50%;
-//   width: 32px;
-//   height: 32px;
-//   background-color: red;
-// `;

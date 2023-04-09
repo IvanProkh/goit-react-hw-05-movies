@@ -5,6 +5,8 @@ import {
   searchImages,
 } from '../../components/services/searchApi';
 
+import { toastError } from '../../components/services/toasts';
+
 import { Box } from '../../components/Box';
 import {
   NavList,
@@ -15,21 +17,16 @@ import {
 } from './MovieDetails.styled';
 
 export default function MovieDetails() {
-  const [movie, setMovie] = useState(null); // заменили [] на null для начального состояния
+  const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    getMovieDetails(movieId)
-      .then(setMovie)
-      .catch(err => {
-        console.log('ошибка в муви', err);
-      });
+    getMovieDetails(movieId).then(setMovie).catch(toastError);
   }, [movieId]);
 
   if (!movie) {
-    // заменили проверку на null
     return null;
   }
 

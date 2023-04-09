@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ThreeCircles } from 'react-loader-spinner';
 import { ThreeCirclesStyle } from '../../components/services/spinner';
+import { toastError } from '../../components/services/toasts';
 
 import { getMovieReviews } from '../services/searchApi';
 import { DelayedRender } from '../services/DelayedRender';
@@ -22,7 +23,7 @@ export default function Reviews() {
         const res = await getMovieReviews(movieId);
         setReviews(res.results);
       } catch (error) {
-        console.log(error);
+        toastError();
       } finally {
         setTimeout(() => setLoading(false), 300);
       }
@@ -61,40 +62,3 @@ export default function Reviews() {
     </>
   );
 }
-
-// export const Reviews = () => {
-//   const [reviews, setReviews] = useState([]);
-
-//   const { movieId } = useParams();
-
-//   useEffect(() => {
-//     getMovieReviews(movieId)
-//       .then(res => setReviews(res.results))
-//       .catch(error => console.log(error));
-//   }, [movieId]);
-
-//   return (
-//     <>
-//       {reviews && reviews.length > 0 ? (
-//         <ReviewsList>
-//           {reviews.map(({ id, author, content }) => {
-//             return (
-//               <div key={id}>
-//                 <h3>
-//                   Author: <span>{author}</span>
-//                 </h3>
-//                 <p>{content}</p>
-//               </div>
-//             );
-//           })}
-//         </ReviewsList>
-//       ) : (
-//         <DelayedRender delay={300}>
-//           <EmptyReviews>
-//             ❗❗❗Sorry, we don't have any reviews for this movie❗❗❗
-//           </EmptyReviews>
-//         </DelayedRender>
-//       )}
-//     </>
-//   );
-// };

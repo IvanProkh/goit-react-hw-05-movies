@@ -1,13 +1,7 @@
 import { Box } from '../Box';
 import { NavLink } from 'react-router-dom';
 import { theme } from '../../theme';
-import {
-  AppBarList,
-  AppBarItem,
-  AppBarTitle,
-  // AppBarUser,
-} from './AppBar.styled';
-
+import { AppBarList, AppBarItem, AppBarTitle } from './AppBar.styled';
 
 export default function AppBar() {
   return (
@@ -30,4 +24,4 @@ export default function AppBar() {
       </AppBarList>
     </Box>
   );
-};
+}
